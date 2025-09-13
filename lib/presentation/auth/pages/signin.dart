@@ -36,7 +36,7 @@ class SignInPage extends StatelessWidget {
                   EnterPasswordPage(signInRequest: ""),
                 );
               },
-              title: 'Continue',
+              title: 'Sign In',
             ),
             const SizedBox(height: 20),
             RichText(

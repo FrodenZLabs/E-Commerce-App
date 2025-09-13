@@ -22,55 +22,52 @@ class EnterPasswordPage extends StatelessWidget {
       appBar: BasicAppBar(),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 40),
-        child: BlocProvider(
-          create: (context) => ButtonCubit(),
-          child: BlocListener<ButtonCubit, ButtonState>(
-            listener: (context, state) {
-              if (state is ButtonFailureState) {
-                debugPrint('Failure logging in');
-              }
+        child: BlocListener<ButtonCubit, ButtonState>(
+          listener: (context, state) {
+            if (state is ButtonFailureState) {
+              debugPrint('Failure logging in');
+            }
 
-              if (state is ButtonSuccessState) {
-                AppNavigator.pushAndRemove(context, const HomePage());
-              }
-            },
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Sign In',
-                  style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+            if (state is ButtonSuccessState) {
+              AppNavigator.pushAndRemove(context, const HomePage());
+            }
+          },
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Sign In',
+                style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 20),
+              TextField(
+                controller: _passwordController,
+                decoration: const InputDecoration(hintText: 'Enter Password'),
+              ),
+              const SizedBox(height: 20),
+              BasicReactiveButton(
+                onPressed: () {
+                  debugPrint('Login successfully');
+                },
+                title: 'Continue',
+              ),
+              const SizedBox(height: 20),
+              RichText(
+                text: TextSpan(
+                  children: [
+                    const TextSpan(text: 'Forgot password? '),
+                    TextSpan(
+                      text: 'Reset password',
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          AppNavigator.push(context, ForgotPasswordPage());
+                        },
+                      style: const TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                  ],
                 ),
-                const SizedBox(height: 20),
-                TextField(
-                  controller: _passwordController,
-                  decoration: const InputDecoration(hintText: 'Enter Password'),
-                ),
-                const SizedBox(height: 20),
-                BasicReactiveButton(
-                  onPressed: () {
-                    debugPrint('Login successfully');
-                  },
-                  title: 'Continue',
-                ),
-                const SizedBox(height: 20),
-                RichText(
-                  text: TextSpan(
-                    children: [
-                      const TextSpan(text: 'Forgot password? '),
-                      TextSpan(
-                        text: 'Reset password',
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () {
-                            AppNavigator.push(context, ForgotPasswordPage());
-                          },
-                        style: const TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
