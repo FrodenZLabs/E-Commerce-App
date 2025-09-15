@@ -7,7 +7,7 @@ class ProductOrdered {
   final double productPrice;
   final double totalPrice;
   final String productImage;
-  final String createdImage;
+  final String createdDate;
   final String id;
 
   ProductOrdered({
@@ -19,7 +19,7 @@ class ProductOrdered {
     required this.productPrice,
     required this.totalPrice,
     required this.productImage,
-    required this.createdImage,
+    required this.createdDate,
     required this.id,
   });
 }

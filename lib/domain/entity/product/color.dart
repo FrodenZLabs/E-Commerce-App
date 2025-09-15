@@ -1,6 +1,6 @@
 class ProductColor {
   final String title;
-  final List<int> rgd;
+  final List<int> rgb;
 
-  ProductColor({required this.title, required this.rgd});
+  ProductColor({required this.title, required this.rgb});
 }
