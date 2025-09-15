@@ -1,9 +1,9 @@
-import 'package:e_commerce_app/common/helper/navigator/app_navigator.dart';
 import 'package:e_commerce_app/core/configs/assets/app_images.dart';
 import 'package:e_commerce_app/core/configs/theme/app_colors.dart';
-import 'package:e_commerce_app/presentation/auth/pages/signin.dart';
-import 'package:e_commerce_app/presentation/home/pages/home.dart';
-import 'package:e_commerce_app/presentation/splash/bloc/splash_cubit.dart';
+import 'package:e_commerce_app/core/helper/navigator/app_navigator.dart';
+import 'package:e_commerce_app/presentation/bloc/splash/splash_cubit.dart';
+import 'package:e_commerce_app/presentation/pages/auth/signin.dart';
+import 'package:e_commerce_app/presentation/pages/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

@@ -1,9 +1,9 @@
-import 'package:e_commerce_app/common/bloc/button/button_cubit.dart';
-import 'package:e_commerce_app/common/bloc/button/button_state.dart';
-import 'package:e_commerce_app/common/helper/navigator/app_navigator.dart';
-import 'package:e_commerce_app/common/widgets/appbar/app_bar.dart';
-import 'package:e_commerce_app/common/widgets/button/basic_reactive_button.dart';
-import 'package:e_commerce_app/presentation/auth/pages/password_reset_email.dart';
+import 'package:e_commerce_app/core/helper/navigator/app_navigator.dart';
+import 'package:e_commerce_app/presentation/bloc/button/button_cubit.dart';
+import 'package:e_commerce_app/presentation/bloc/button/button_state.dart';
+import 'package:e_commerce_app/presentation/pages/auth/password_reset_email.dart';
+import 'package:e_commerce_app/presentation/widgets/app_bar.dart';
+import 'package:e_commerce_app/presentation/widgets/basic_reactive_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

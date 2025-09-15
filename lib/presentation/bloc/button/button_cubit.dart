@@ -5,12 +5,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'button_state.dart';
 
 class ButtonCubit extends Cubit<ButtonState> {
-  ButtonCubit() : super(ButtonInitialState());
+  final UseCase useCase;
+  ButtonCubit(this.useCase) : super(ButtonInitialState());
 
-  Future<void> execute({dynamic params, required UseCase usecase}) async {
+  void execute({dynamic params}) async {
     emit(ButtonLoadingState());
     try {
-      Either returnedData = await usecase.call(params: params);
+      Either returnedData = await useCase.call(params: params);
       returnedData.fold(
         (error) {
           emit(ButtonFailureState(errorMessage: error));

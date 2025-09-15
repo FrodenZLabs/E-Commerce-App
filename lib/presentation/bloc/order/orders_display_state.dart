@@ -5,7 +5,7 @@ abstract class OrdersDisplayState {}
 class OrdersLoading extends OrdersDisplayState {}
 
 class OrdersLoaded extends OrdersDisplayState {
-  final String orders;
+  final List<Order> orders;
   OrdersLoaded({required this.orders});
 }
 

@@ -1,13 +1,13 @@
-import 'package:e_commerce_app/common/bloc/button/button_cubit.dart';
-import 'package:e_commerce_app/common/bloc/button/button_state.dart';
-import 'package:e_commerce_app/common/helper/bottomsheet/app_bottomsheet.dart';
-import 'package:e_commerce_app/common/widgets/appbar/app_bar.dart';
-import 'package:e_commerce_app/common/widgets/button/basic_reactive_button.dart';
 import 'package:e_commerce_app/core/configs/theme/app_colors.dart';
-import 'package:e_commerce_app/presentation/auth/bloc/age_display_cubit.dart';
-import 'package:e_commerce_app/presentation/auth/bloc/age_selection_cubit.dart';
-import 'package:e_commerce_app/presentation/auth/bloc/gender_selection_cubit.dart';
-import 'package:e_commerce_app/presentation/auth/widgets/ages.dart';
+import 'package:e_commerce_app/core/helper/bottomsheet/app_bottomsheet.dart';
+import 'package:e_commerce_app/presentation/bloc/auth/age_display_cubit.dart';
+import 'package:e_commerce_app/presentation/bloc/auth/age_selection_cubit.dart';
+import 'package:e_commerce_app/presentation/bloc/auth/gender_selection_cubit.dart';
+import 'package:e_commerce_app/presentation/bloc/button/button_cubit.dart';
+import 'package:e_commerce_app/presentation/bloc/button/button_state.dart';
+import 'package:e_commerce_app/presentation/widgets/ages.dart';
+import 'package:e_commerce_app/presentation/widgets/app_bar.dart';
+import 'package:e_commerce_app/presentation/widgets/basic_reactive_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

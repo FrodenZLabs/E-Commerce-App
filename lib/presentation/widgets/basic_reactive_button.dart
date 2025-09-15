@@ -1,5 +1,5 @@
-import 'package:e_commerce_app/common/bloc/button/button_cubit.dart';
-import 'package:e_commerce_app/common/bloc/button/button_state.dart';
+import 'package:e_commerce_app/presentation/bloc/button/button_cubit.dart';
+import 'package:e_commerce_app/presentation/bloc/button/button_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

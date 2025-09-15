@@ -1,8 +1,8 @@
-import 'package:e_commerce_app/common/helper/navigator/app_navigator.dart';
-import 'package:e_commerce_app/common/widgets/appbar/app_bar.dart';
-import 'package:e_commerce_app/common/widgets/button/basic_app_button.dart';
-import 'package:e_commerce_app/presentation/auth/pages/enter_password.dart';
-import 'package:e_commerce_app/presentation/auth/pages/signup.dart';
+import 'package:e_commerce_app/core/helper/navigator/app_navigator.dart';
+import 'package:e_commerce_app/presentation/pages/auth/enter_password.dart';
+import 'package:e_commerce_app/presentation/pages/auth/signup.dart';
+import 'package:e_commerce_app/presentation/widgets/app_bar.dart';
+import 'package:e_commerce_app/presentation/widgets/basic_app_button.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
