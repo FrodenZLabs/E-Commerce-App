@@ -6,7 +6,7 @@ import 'package:e_commerce_app/data/models/order/order_registration_model.dart';
 import 'package:e_commerce_app/data/models/order/product_ordered_model.dart';
 import 'package:e_commerce_app/domain/repository/order/order_repository.dart';
 
-class OrderRepositoryImpl extends OrderRepository {
+class OrderRepositoryImpl implements OrderRepository {
   final OrderRemoteDataSource remoteDataSource;
 
   OrderRepositoryImpl(this.remoteDataSource);

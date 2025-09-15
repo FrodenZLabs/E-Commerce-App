@@ -4,7 +4,7 @@ import 'package:e_commerce_app/data/models/product/product_model.dart';
 import 'package:e_commerce_app/domain/entity/product/product.dart';
 import 'package:e_commerce_app/domain/repository/product/product_repository.dart';
 
-class ProductRepositoryImpl extends ProductRepository {
+class ProductRepositoryImpl implements ProductRepository {
   final ProductRemoteDataSource remoteDataSource;
 
   ProductRepositoryImpl(this.remoteDataSource);

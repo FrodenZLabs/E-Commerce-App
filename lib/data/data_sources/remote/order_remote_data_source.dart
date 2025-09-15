@@ -12,7 +12,7 @@ abstract class OrderRemoteDataSource {
   Future<Either> getOrders();
 }
 
-class OrderRemoteDataSourceImpl extends OrderRemoteDataSource {
+class OrderRemoteDataSourceImpl implements OrderRemoteDataSource {
   @override
   Future<Either> addToCart(AddToCartModel addToCart) async {
     try {

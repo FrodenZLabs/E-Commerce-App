@@ -14,7 +14,7 @@ abstract class ProductRemoteDataSource {
   Future<Either> getFavoritesProducts();
 }
 
-class ProductRemoteDataSourceImpl extends ProductRemoteDataSource {
+class ProductRemoteDataSourceImpl implements ProductRemoteDataSource {
   @override
   Future<Either> addOrRemoveFavoriteProduct(Product product) async {
     try {
