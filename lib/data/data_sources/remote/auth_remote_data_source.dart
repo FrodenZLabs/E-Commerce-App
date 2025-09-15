@@ -29,7 +29,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   @override
   Future<Either> getUser() async {
     try {
-      final currentUser = await FirebaseAuth.instance.currentUser;
+      final currentUser = FirebaseAuth.instance.currentUser;
       final userData = await FirebaseFirestore.instance
           .collection('Users')
           .doc(currentUser?.uid)
@@ -54,9 +54,7 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   @override
   Future<Either> sendPasswordResetEmail(String email) async {
     try {
-      final returnedData = await FirebaseAuth.instance.sendPasswordResetEmail(
-        email: email,
-      );
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
       return const Right('Password reset email is sent successfully');
     } catch (e) {
       return Left('Please try again');
@@ -66,11 +64,10 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   @override
   Future<Either> signIn(UserSignInModel user) async {
     try {
-      final returnedData = await FirebaseAuth.instance
-          .signInWithEmailAndPassword(
-            email: user.email,
-            password: user.password!,
-          );
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: user.email,
+        password: user.password!,
+      );
 
       return const Right('Sign in was successful');
     } on FirebaseAuthException catch (e) {
