@@ -3,6 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:e_commerce_app/data/models/product/product_model.dart';
 import 'package:e_commerce_app/domain/entity/product/product.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:injectable/injectable.dart';
 
 abstract class ProductRemoteDataSource {
   Future<Either> getTopSelling();
@@ -14,6 +15,7 @@ abstract class ProductRemoteDataSource {
   Future<Either> getFavoritesProducts();
 }
 
+@LazySingleton(as: ProductRemoteDataSource)
 class ProductRemoteDataSourceImpl implements ProductRemoteDataSource {
   @override
   Future<Either> addOrRemoveFavoriteProduct(Product product) async {

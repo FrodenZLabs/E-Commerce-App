@@ -2,7 +2,9 @@ import 'package:dartz/dartz.dart';
 import 'package:e_commerce_app/data/data_sources/remote/category_remote_data_source.dart';
 import 'package:e_commerce_app/data/models/category/category_model.dart';
 import 'package:e_commerce_app/domain/repository/category/category_repository.dart';
+import 'package:injectable/injectable.dart';
 
+@LazySingleton(as: CategoryRepository)
 class CategoryRepositoryImpl implements CategoryRepository {
   final CategoryRemoteDataSource remoteDataSource;
 

@@ -5,7 +5,9 @@ import 'package:e_commerce_app/data/models/order/order_model.dart';
 import 'package:e_commerce_app/data/models/order/order_registration_model.dart';
 import 'package:e_commerce_app/data/models/order/product_ordered_model.dart';
 import 'package:e_commerce_app/domain/repository/order/order_repository.dart';
+import 'package:injectable/injectable.dart';
 
+@LazySingleton(as: OrderRepository)
 class OrderRepositoryImpl implements OrderRepository {
   final OrderRemoteDataSource remoteDataSource;
 

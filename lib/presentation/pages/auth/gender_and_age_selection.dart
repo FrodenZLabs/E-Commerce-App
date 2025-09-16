@@ -1,5 +1,8 @@
 import 'package:e_commerce_app/core/configs/theme/app_colors.dart';
+import 'package:e_commerce_app/core/di/injection.dart';
 import 'package:e_commerce_app/core/helper/bottomsheet/app_bottomsheet.dart';
+import 'package:e_commerce_app/data/models/auth/user_creation_model.dart';
+import 'package:e_commerce_app/domain/usecases/auth/sign_up_use_case.dart';
 import 'package:e_commerce_app/presentation/bloc/auth/age_display_cubit.dart';
 import 'package:e_commerce_app/presentation/bloc/auth/age_selection_cubit.dart';
 import 'package:e_commerce_app/presentation/bloc/auth/gender_selection_cubit.dart';
@@ -12,7 +15,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class GenderAndAgeSelection extends StatelessWidget {
-  final String userCreationReq;
+  final UserCreationModel userCreationReq;
   const GenderAndAgeSelection({super.key, required this.userCreationReq});
 
   @override
@@ -22,7 +25,11 @@ class GenderAndAgeSelection extends StatelessWidget {
       body: BlocListener<ButtonCubit, ButtonState>(
         listener: (context, state) {
           if (state is ButtonFailureState) {
-            // Error message
+            var snackBar = SnackBar(
+              content: Text(state.errorMessage),
+              behavior: SnackBarBehavior.floating,
+            );
+            ScaffoldMessenger.of(context).showSnackBar(snackBar);
           }
         },
         child: Column(
@@ -137,7 +144,21 @@ class GenderAndAgeSelection extends StatelessWidget {
       child: Center(
         child: Builder(
           builder: (context) {
-            return BasicReactiveButton(onPressed: () {}, title: 'Finish');
+            return BasicReactiveButton(
+              onPressed: () {
+                userCreationReq.gender = context
+                    .read<GenderSelectionCubit>()
+                    .selectedIndex;
+                userCreationReq.age = context
+                    .read<AgeSelectionCubit>()
+                    .selectedAge;
+                context.read<ButtonCubit>().execute(
+                  useCase: getIt<SignUpUseCase>(),
+                  params: userCreationReq,
+                );
+              },
+              title: 'Finish',
+            );
           },
         ),
       ),

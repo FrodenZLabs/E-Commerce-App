@@ -1,4 +1,5 @@
 import 'package:e_commerce_app/core/helper/navigator/app_navigator.dart';
+import 'package:e_commerce_app/data/models/auth/user_signin_model.dart';
 import 'package:e_commerce_app/presentation/pages/auth/enter_password.dart';
 import 'package:e_commerce_app/presentation/pages/auth/signup.dart';
 import 'package:e_commerce_app/presentation/widgets/app_bar.dart';
@@ -26,14 +27,21 @@ class SignInPage extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             TextField(
-              decoration: const InputDecoration(hintText: 'Enter Email'),
+              controller: _emailController,
+              decoration: const InputDecoration(
+                hintText: 'Enter Email Address',
+              ),
             ),
             const SizedBox(height: 20),
             BasicAppButton(
               onPressed: () {
                 AppNavigator.push(
                   context,
-                  EnterPasswordPage(signInRequest: ""),
+                  EnterPasswordPage(
+                    signInRequest: UserSignInModel(
+                      email: _emailController.text,
+                    ),
+                  ),
                 );
               },
               title: 'Sign In',

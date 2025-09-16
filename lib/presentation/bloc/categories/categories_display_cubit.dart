@@ -1,9 +1,11 @@
 import 'package:e_commerce_app/domain/entity/category/category.dart';
 import 'package:e_commerce_app/domain/usecases/category/get_categories_use_case.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:injectable/injectable.dart';
 
 part 'categories_display_state.dart';
 
+@injectable
 class CategoriesDisplayCubit extends Cubit<CategoriesDisplayState> {
   final GetCategoriesUseCase _getCategoriesUseCase;
 

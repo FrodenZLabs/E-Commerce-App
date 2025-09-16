@@ -1,4 +1,7 @@
+import 'package:e_commerce_app/core/di/injection.dart';
 import 'package:e_commerce_app/core/helper/navigator/app_navigator.dart';
+import 'package:e_commerce_app/data/models/auth/user_signin_model.dart';
+import 'package:e_commerce_app/domain/usecases/auth/sign_in_use_case.dart';
 import 'package:e_commerce_app/presentation/bloc/button/button_cubit.dart';
 import 'package:e_commerce_app/presentation/bloc/button/button_state.dart';
 import 'package:e_commerce_app/presentation/pages/auth/forgot_password.dart';
@@ -10,7 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class EnterPasswordPage extends StatelessWidget {
-  final String signInRequest;
+  final UserSignInModel signInRequest;
 
   EnterPasswordPage({super.key, required this.signInRequest});
 
@@ -25,7 +28,11 @@ class EnterPasswordPage extends StatelessWidget {
         child: BlocListener<ButtonCubit, ButtonState>(
           listener: (context, state) {
             if (state is ButtonFailureState) {
-              debugPrint('Failure logging in');
+              var snackBar = SnackBar(
+                content: Text(state.errorMessage),
+                behavior: SnackBarBehavior.floating,
+              );
+              ScaffoldMessenger.of(context).showSnackBar(snackBar);
             }
 
             if (state is ButtonSuccessState) {
@@ -47,7 +54,11 @@ class EnterPasswordPage extends StatelessWidget {
               const SizedBox(height: 20),
               BasicReactiveButton(
                 onPressed: () {
-                  debugPrint('Login successfully');
+                  signInRequest.password = _passwordController.text;
+                  context.read<ButtonCubit>().execute(
+                    useCase: getIt<SignInUseCase>(),
+                    params: signInRequest,
+                  );
                 },
                 title: 'Continue',
               ),

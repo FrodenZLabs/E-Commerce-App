@@ -1,9 +1,11 @@
 import 'package:e_commerce_app/domain/entity/order/order.dart';
 import 'package:e_commerce_app/domain/usecases/order/get_orders_use_case.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:injectable/injectable.dart' hide Order;
 
 part 'orders_display_state.dart';
 
+@injectable
 class OrdersDisplayCubit extends Cubit<OrdersDisplayState> {
   final GetOrdersUseCase _ordersUseCase;
   OrdersDisplayCubit(this._ordersUseCase) : super(OrdersLoading());

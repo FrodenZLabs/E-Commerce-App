@@ -1,8 +1,10 @@
 import 'package:e_commerce_app/domain/usecases/auth/get_ages_use_case.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:injectable/injectable.dart';
 
 import 'age_display_state.dart';
 
+@injectable
 class AgeDisplayCubit extends Cubit<AgeDisplayState> {
   final GetAgesUseCase _agesUseCase;
   AgeDisplayCubit(this._agesUseCase) : super(AgesLoading());

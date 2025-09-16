@@ -1,4 +1,5 @@
 import 'package:e_commerce_app/core/helper/navigator/app_navigator.dart';
+import 'package:e_commerce_app/data/models/auth/user_creation_model.dart';
 import 'package:e_commerce_app/presentation/pages/auth/gender_and_age_selection.dart';
 import 'package:e_commerce_app/presentation/pages/auth/signin.dart';
 import 'package:e_commerce_app/presentation/widgets/app_bar.dart';
@@ -52,7 +53,14 @@ class SignUpPage extends StatelessWidget {
               onPressed: () {
                 AppNavigator.push(
                   context,
-                  GenderAndAgeSelection(userCreationReq: ''),
+                  GenderAndAgeSelection(
+                    userCreationReq: UserCreationModel(
+                      firstName: _firstNameController.text,
+                      lastName: _lastNameController.text,
+                      email: _emailController.text,
+                      password: _passwordController.text,
+                    ),
+                  ),
                 );
               },
               title: 'Sign Up',

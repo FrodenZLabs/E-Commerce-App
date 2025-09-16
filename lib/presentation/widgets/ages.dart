@@ -46,7 +46,7 @@ class Ages extends StatelessWidget {
           onTap: () {
             Navigator.pop(context);
             context.read<AgeSelectionCubit>().selectAge(
-              ages[index].data()['index'],
+              ages[index].data()['value'],
             );
           },
           child: Text(

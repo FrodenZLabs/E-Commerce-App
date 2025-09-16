@@ -3,6 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:e_commerce_app/data/models/auth/user_creation_model.dart';
 import 'package:e_commerce_app/data/models/auth/user_signin_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:injectable/injectable.dart';
 
 abstract class AuthRemoteDataSource {
   Future<Either> signUp(UserCreationModel user);
@@ -13,6 +14,7 @@ abstract class AuthRemoteDataSource {
   Future<Either> getUser();
 }
 
+@LazySingleton(as: AuthRemoteDataSource)
 class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   @override
   Future<Either> getAges() async {

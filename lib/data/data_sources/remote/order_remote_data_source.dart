@@ -3,6 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:e_commerce_app/data/models/order/add_to_cart_model.dart';
 import 'package:e_commerce_app/data/models/order/order_registration_model.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:injectable/injectable.dart';
 
 abstract class OrderRemoteDataSource {
   Future<Either> addToCart(AddToCartModel addToCart);
@@ -12,6 +13,7 @@ abstract class OrderRemoteDataSource {
   Future<Either> getOrders();
 }
 
+@LazySingleton(as: OrderRemoteDataSource)
 class OrderRemoteDataSourceImpl implements OrderRemoteDataSource {
   @override
   Future<Either> addToCart(AddToCartModel addToCart) async {

@@ -1,22 +1,23 @@
 import 'package:dartz/dartz.dart';
 import 'package:e_commerce_app/core/usecase/usecase.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:injectable/injectable.dart';
 
 import 'button_state.dart';
 
+@injectable
 class ButtonCubit extends Cubit<ButtonState> {
-  final UseCase useCase;
-  ButtonCubit(this.useCase) : super(ButtonInitialState());
+  ButtonCubit() : super(ButtonInitialState());
 
-  void execute({dynamic params}) async {
+  void execute({dynamic params, required UseCase useCase}) async {
     emit(ButtonLoadingState());
     try {
-      Either returnedData = await useCase.call(params: params);
+      final Either returnedData = await useCase.call(params: params);
       returnedData.fold(
         (error) {
           emit(ButtonFailureState(errorMessage: error));
         },
-        (data) {
+        (_) {
           emit(ButtonSuccessState());
         },
       );
