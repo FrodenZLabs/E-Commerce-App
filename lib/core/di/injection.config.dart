@@ -58,6 +58,20 @@ import 'package:e_commerce_app/domain/usecases/order/order_registration_use_case
     as _i918;
 import 'package:e_commerce_app/domain/usecases/order/remove_cart_product_use_case.dart'
     as _i78;
+import 'package:e_commerce_app/domain/usecases/product/add_or_remove_favorite_product_use_case.dart'
+    as _i677;
+import 'package:e_commerce_app/domain/usecases/product/get_favorites_products_use_case.dart'
+    as _i311;
+import 'package:e_commerce_app/domain/usecases/product/get_new_in_use_case.dart'
+    as _i163;
+import 'package:e_commerce_app/domain/usecases/product/get_products_by_category_id_use_case.dart'
+    as _i168;
+import 'package:e_commerce_app/domain/usecases/product/get_products_by_title_use_case.dart'
+    as _i1036;
+import 'package:e_commerce_app/domain/usecases/product/get_top_selling_use_case.dart'
+    as _i527;
+import 'package:e_commerce_app/domain/usecases/product/is_favorite_use_case.dart'
+    as _i760;
 import 'package:e_commerce_app/presentation/bloc/auth/age_display_cubit.dart'
     as _i599;
 import 'package:e_commerce_app/presentation/bloc/auth/age_selection_cubit.dart'
@@ -74,6 +88,8 @@ import 'package:e_commerce_app/presentation/bloc/product/products_display_cubit.
     as _i87;
 import 'package:e_commerce_app/presentation/bloc/splash/splash_cubit.dart'
     as _i790;
+import 'package:e_commerce_app/presentation/bloc/user_info/user_info_display_cubit.dart'
+    as _i335;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 
@@ -129,6 +145,29 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i281.AuthRepository>(
       () => _i873.AuthRepositoryImpl(gh<_i1065.AuthRemoteDataSource>()),
     );
+    gh.lazySingleton<_i677.AddOrRemoveFavoriteProductUseCase>(
+      () => _i677.AddOrRemoveFavoriteProductUseCase(
+        gh<_i672.ProductRepository>(),
+      ),
+    );
+    gh.lazySingleton<_i311.GetFavoritesProductsUseCase>(
+      () => _i311.GetFavoritesProductsUseCase(gh<_i672.ProductRepository>()),
+    );
+    gh.lazySingleton<_i163.GetNewInUseCase>(
+      () => _i163.GetNewInUseCase(gh<_i672.ProductRepository>()),
+    );
+    gh.lazySingleton<_i168.GetProductsByCategoryIdUseCase>(
+      () => _i168.GetProductsByCategoryIdUseCase(gh<_i672.ProductRepository>()),
+    );
+    gh.lazySingleton<_i1036.GetProductsByTitleUseCase>(
+      () => _i1036.GetProductsByTitleUseCase(gh<_i672.ProductRepository>()),
+    );
+    gh.lazySingleton<_i527.GetTopSellingUseCase>(
+      () => _i527.GetTopSellingUseCase(gh<_i672.ProductRepository>()),
+    );
+    gh.lazySingleton<_i760.IsFavoriteUseCase>(
+      () => _i760.IsFavoriteUseCase(gh<_i672.ProductRepository>()),
+    );
     gh.lazySingleton<_i469.GetCategoriesUseCase>(
       () => _i469.GetCategoriesUseCase(gh<_i691.CategoryRepository>()),
     );
@@ -158,6 +197,9 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i790.SplashCubit>(
       () => _i790.SplashCubit(gh<_i126.IsLoggedInUseCase>()),
+    );
+    gh.factory<_i335.UserInfoDisplayCubit>(
+      () => _i335.UserInfoDisplayCubit(gh<_i372.GetUserUseCase>()),
     );
     gh.factory<_i599.AgeDisplayCubit>(
       () => _i599.AgeDisplayCubit(gh<_i410.GetAgesUseCase>()),

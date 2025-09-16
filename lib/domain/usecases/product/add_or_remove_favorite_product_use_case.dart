@@ -2,7 +2,9 @@ import 'package:dartz/dartz.dart';
 import 'package:e_commerce_app/core/usecase/usecase.dart';
 import 'package:e_commerce_app/domain/entity/product/product.dart';
 import 'package:e_commerce_app/domain/repository/product/product_repository.dart';
+import 'package:injectable/injectable.dart';
 
+@LazySingleton()
 class AddOrRemoveFavoriteProductUseCase implements UseCase<Either, Product> {
   final ProductRepository repository;
 

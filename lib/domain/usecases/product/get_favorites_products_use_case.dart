@@ -1,7 +1,9 @@
 import 'package:dartz/dartz.dart';
 import 'package:e_commerce_app/core/usecase/usecase.dart';
 import 'package:e_commerce_app/domain/repository/product/product_repository.dart';
+import 'package:injectable/injectable.dart';
 
+@LazySingleton()
 class GetFavoritesProductsUseCase implements UseCase<Either, dynamic> {
   final ProductRepository repository;
 
