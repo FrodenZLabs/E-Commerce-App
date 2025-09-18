@@ -1,4 +1,3 @@
-import 'package:e_commerce_app/core/configs/theme/app_colors.dart';
 import 'package:e_commerce_app/core/di/injection.dart';
 import 'package:e_commerce_app/domain/entity/product/product.dart';
 import 'package:e_commerce_app/domain/usecases/product/get_new_in_use_case.dart';
@@ -44,7 +43,7 @@ class NewIn extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 16),
       child: Text(
         'New In',
-        style: TextStyle(fontSize: 16, color: AppColors.primary),
+        style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
       ),
     );
   }

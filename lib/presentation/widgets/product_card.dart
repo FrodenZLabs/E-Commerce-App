@@ -1,6 +1,9 @@
 import 'package:e_commerce_app/core/configs/theme/app_colors.dart';
+import 'package:e_commerce_app/core/helper/navigator/app_navigator.dart';
 import 'package:e_commerce_app/domain/entity/product/product.dart';
+import 'package:e_commerce_app/presentation/pages/product/product_detail.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class ProductCard extends StatelessWidget {
   final Product product;
@@ -8,9 +11,11 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final formatter = NumberFormat('#,###');
+
     return GestureDetector(
       onTap: () {
-        // AppNavigator.push(context, ProductDetailPage());
+        AppNavigator.push(context, ProductDetailPage(product: product));
       },
       child: Container(
         width: 180,
@@ -27,7 +32,9 @@ class ProductCard extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.white,
+
                   image: DecorationImage(
+                    fit: BoxFit.cover,
                     image: NetworkImage(product.images[0]),
                   ),
                   borderRadius: BorderRadius.only(
@@ -56,8 +63,8 @@ class ProductCard extends StatelessWidget {
                       children: [
                         Text(
                           product.discountedPrice == 0
-                              ? "${product.price}"
-                              : "${product.discountedPrice}",
+                              ? "Kshs. ${formatter.format(product.price)}"
+                              : "Kshs. ${formatter.format(product.discountedPrice)}",
                           style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.w300,
@@ -67,7 +74,7 @@ class ProductCard extends StatelessWidget {
                         Text(
                           product.discountedPrice == 0
                               ? ""
-                              : "${product.price}",
+                              : "Kshs. ${formatter.format(product.price)}",
                           style: TextStyle(
                             fontSize: 12,
                             color: Colors.grey,

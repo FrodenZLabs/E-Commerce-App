@@ -65,6 +65,7 @@ class Header extends StatelessWidget {
         color: AppColors.secondBackground,
         borderRadius: BorderRadius.circular(100),
       ),
+
       child: Center(
         child: Text(
           user.gender == 1 ? 'Men' : 'Women',

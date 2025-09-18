@@ -84,6 +84,14 @@ import 'package:e_commerce_app/presentation/bloc/categories/categories_display_c
     as _i395;
 import 'package:e_commerce_app/presentation/bloc/order/orders_display_cubit.dart'
     as _i765;
+import 'package:e_commerce_app/presentation/bloc/product/favorite_icon_cubit.dart'
+    as _i1067;
+import 'package:e_commerce_app/presentation/bloc/product/product_color_selection_cubit.dart'
+    as _i277;
+import 'package:e_commerce_app/presentation/bloc/product/product_quantity_cubit.dart'
+    as _i968;
+import 'package:e_commerce_app/presentation/bloc/product/product_size_selection_cubit.dart'
+    as _i210;
 import 'package:e_commerce_app/presentation/bloc/product/products_display_cubit.dart'
     as _i87;
 import 'package:e_commerce_app/presentation/bloc/splash/splash_cubit.dart'
@@ -103,6 +111,13 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i338.AgeSelectionCubit>(() => _i338.AgeSelectionCubit());
     gh.factory<_i841.GenderSelectionCubit>(() => _i841.GenderSelectionCubit());
     gh.factory<_i328.ButtonCubit>(() => _i328.ButtonCubit());
+    gh.factory<_i277.ProductColorSelectionCubit>(
+      () => _i277.ProductColorSelectionCubit(),
+    );
+    gh.factory<_i968.ProductQuantityCubit>(() => _i968.ProductQuantityCubit());
+    gh.factory<_i210.ProductSizeSelectionCubit>(
+      () => _i210.ProductSizeSelectionCubit(),
+    );
     gh.lazySingleton<_i1065.AuthRemoteDataSource>(
       () => _i1065.AuthRemoteDataSourceImpl(),
     );
@@ -200,6 +215,12 @@ extension GetItInjectableX on _i174.GetIt {
     );
     gh.factory<_i335.UserInfoDisplayCubit>(
       () => _i335.UserInfoDisplayCubit(gh<_i372.GetUserUseCase>()),
+    );
+    gh.factory<_i1067.FavoriteIconCubit>(
+      () => _i1067.FavoriteIconCubit(
+        gh<_i760.IsFavoriteUseCase>(),
+        gh<_i677.AddOrRemoveFavoriteProductUseCase>(),
+      ),
     );
     gh.factory<_i599.AgeDisplayCubit>(
       () => _i599.AgeDisplayCubit(gh<_i410.GetAgesUseCase>()),

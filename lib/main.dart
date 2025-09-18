@@ -6,6 +6,9 @@ import 'package:e_commerce_app/presentation/bloc/auth/age_selection_cubit.dart';
 import 'package:e_commerce_app/presentation/bloc/auth/gender_selection_cubit.dart';
 import 'package:e_commerce_app/presentation/bloc/button/button_cubit.dart';
 import 'package:e_commerce_app/presentation/bloc/categories/categories_display_cubit.dart';
+import 'package:e_commerce_app/presentation/bloc/product/product_color_selection_cubit.dart';
+import 'package:e_commerce_app/presentation/bloc/product/product_quantity_cubit.dart';
+import 'package:e_commerce_app/presentation/bloc/product/product_size_selection_cubit.dart';
 import 'package:e_commerce_app/presentation/bloc/splash/splash_cubit.dart';
 import 'package:e_commerce_app/presentation/bloc/user_info/user_info_display_cubit.dart';
 import 'package:e_commerce_app/presentation/pages/splash/splash.dart';
@@ -36,6 +39,9 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (context) => getIt<GenderSelectionCubit>()),
         BlocProvider(create: (context) => getIt<AgeDisplayCubit>()),
         BlocProvider(create: (context) => getIt<AgeSelectionCubit>()),
+        BlocProvider(create: (context) => getIt<ProductColorSelectionCubit>()),
+        BlocProvider(create: (context) => getIt<ProductSizeSelectionCubit>()),
+        BlocProvider(create: (context) => getIt<ProductQuantityCubit>()),
 
         BlocProvider(
           create: (context) =>
